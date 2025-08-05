@@ -41,3 +41,43 @@ flowchart TD
     D --> E{Is Array Empty?}
     E -- Yes --> F[Terminate Flow]
     E -- No --> G[Respond to Power Apps - Typed Array]
+```
+## Prerequisites
+
+| Requirement            | Notes                                                     |
+| ---------------------- | --------------------------------------------------------- |
+| Power Automate License | Any tier supporting custom flows                          |
+| Connections            | HTTP and Power Apps                                       |
+| API Details            | Base URL and authentication credentials (stored securely) |
+
+## Usage in Power Apps
+
+```
+// Run the flow and store the result
+ClearCollect(
+    colApiData,
+    PowerAppsTypedResponseFlow.Run()
+);
+
+// Bind data to a gallery
+Gallery1.Items = colApiData;
+Label_Name.Text = ThisItem.Name;
+
+```
+
+## Environment Variables
+
+| Variable     | Purpose                | Example Value             |
+| ------------ | ---------------------- | ------------------------- |
+| `ApiBaseUrl` | REST API root endpoint | `https://api.example.com` |
+| `ApiKey`     | API authentication key | `ABC123SECRET`            |
+
+## Credits
+
+- [**Dileep**](https://github.com/dileepsuggala) – Contributor  
+- [**Sai**](https://github.com/msdev777) – Contributor  
+- [**Vasavi**](https://github.com/vasavisuggala) – Contributor, Maintainer & Publisher  
+
+## Contact
+**Maintainer:** [Vasavi](https://github.com/vasavisuggala)  
+**GitHub:** [https://github.com/vasavisuggala/PowerApps-typed-response-flow](https://github.com/vasavisuggala/PowerApps-typed-response-flow)
